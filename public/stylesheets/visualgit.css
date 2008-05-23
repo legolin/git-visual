@@ -1,0 +1,14 @@
+div.table:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+div.table span {float:left; display:block;}
+
+div.indent {
+  margin-left:4em;
+}
+
+.branch.selected {
+  font-weight:bold;
+}
+
+span form {
+  display:inline;
+}

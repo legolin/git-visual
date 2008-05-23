@@ -1,0 +1,16 @@
+%h1 Current Branches:
+- Git::Branch.each do |branch|
+  %div.indent.table
+    %span{:style => 'width:14em;height:1.5em;padding:1em 0;border-bottom:1px dotted', :class => "branch#{' selected' if branch.selected}"}= branch.name
+    %span{:style => 'width:20em;height:1.5em;padding:1em 0;border-bottom:1px dotted'}
+      %form{:action => url(:switch_to_branch, :id => branch.name), :method => 'POST'}
+        %input{:type => 'submit', :value => 'Switch to Branch', :onclick => ''}
+      %form{:action => url(:branch, :id => branch.name), :method => 'POST'}
+        %input{:type => 'hidden', :name => '_method', :value => 'DELETE'}
+        %input{:type => 'submit', :value => 'Discard Branch',    :onclick => ''}
+%form{:action => '/branches', :method => 'POST'}
+  %div.indent.table
+    %span{:style => 'width:14em;height:1.5em;padding:1em 0;border-bottom:1px dotted', :class => "branch"}
+      %input{:type => 'text', :name => 'name'}
+    %span{:style => 'width:20em;height:1.5em;padding:1em 0;border-bottom:1px dotted'}
+      %input{:type => 'submit', :value => 'Branch Now'}
