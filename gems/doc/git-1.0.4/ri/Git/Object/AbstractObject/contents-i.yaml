@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: caches the contents of this call in memory
+full_name: Git::Object::AbstractObject#contents
+is_singleton: false
+name: contents
+params: ()
+visibility: public

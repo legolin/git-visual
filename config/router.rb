@@ -31,9 +31,10 @@ Merb::Router.prepare do |r|
   # r.default_routes
   
   # Change this for your home page to be available at /
-  r.match('/').to(:controller => 'repositories', :action =>'index')
-  r.resources :repositories, :member => {:choose => :post}
-  r.resources :branches, :member => {:switch_to => :post} do |branch|
-    
-  end
+  r.match('/').to(:controller => 'commits', :action => 'index')
+  r.match('/repository/choose').to(:controller => 'repositories', :action => 'choose').name(:choose_repository)
+  r.resources :repositories
+  r.match('/commits').to(:controller => 'commits') do |commits|
+    commits.match('/:objectish', :method => :get).to(:action => 'show').name(:commit)
+  end.to(:action => 'index').name(:commits)
 end

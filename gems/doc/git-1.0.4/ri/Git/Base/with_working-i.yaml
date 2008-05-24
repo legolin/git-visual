@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: "@working_directory"
+comment: 
+full_name: Git::Base#with_working
+is_singleton: false
+name: with_working
+params: (work_dir) {|@working_directory| ...}
+visibility: public

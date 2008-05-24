@@ -1,0 +1,29 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Git::Raw::Repository
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: cat_file
+- !ruby/object:RI::MethodSummary 
+  name: get_object_by_sha1
+- !ruby/object:RI::MethodSummary 
+  name: get_raw_object_by_sha1
+- !ruby/object:RI::MethodSummary 
+  name: git_path
+- !ruby/object:RI::MethodSummary 
+  name: log
+- !ruby/object:RI::MethodSummary 
+  name: object
+- !ruby/object:RI::MethodSummary 
+  name: show
+name: Repository
+superclass: Object

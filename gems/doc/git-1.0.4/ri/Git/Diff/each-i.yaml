@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: file[1]
+comment: 
+full_name: Git::Diff#each
+is_singleton: false
+name: each
+params: () {|file[1]| ...}
+visibility: public

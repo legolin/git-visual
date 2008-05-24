@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Raw::Internal::LooseStorage#get_raw_object
+is_singleton: false
+name: get_raw_object
+params: (buf)
+visibility: public

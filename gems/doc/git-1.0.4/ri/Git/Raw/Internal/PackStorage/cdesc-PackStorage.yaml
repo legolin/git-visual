@@ -1,0 +1,62 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OBJ_OFS_DELTA
+  value: "6"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OBJ_REF_DELTA
+  value: "7"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: FanOutCount
+  value: "256"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SHA1Size
+  value: "20"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: IdxOffsetSize
+  value: "4"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OffsetSize
+  value: "4"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OffsetStart
+  value: FanOutCount * IdxOffsetSize
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SHA1Start
+  value: OffsetStart + OffsetSize
+- !ruby/object:RI::Constant 
+  comment: 
+  name: EntrySize
+  value: OffsetSize + SHA1Size
+full_name: Git::Raw::Internal::PackStorage
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]"
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: each_entry
+- !ruby/object:RI::MethodSummary 
+  name: each_sha1
+- !ruby/object:RI::MethodSummary 
+  name: name
+- !ruby/object:RI::MethodSummary 
+  name: parse_object
+name: PackStorage
+superclass: Object

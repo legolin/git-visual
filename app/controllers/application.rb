@@ -5,6 +5,6 @@ class Application < Merb::Controller
   private
     def get_repository_root
       set_repository_root(session[:repository_root]) if session[:repository_root]
-      throw :halt, redirect(url(:choose_repository)) unless repository_root
+      throw :halt, redirect(url(:choose_repository)) unless Thread.current['repository']
     end
 end

@@ -1,0 +1,13 @@
+%h1 Commit History
+%div#commit_list
+  - mygit.log(10000).reverse.each do |log|
+    %a{:href => url(:commit, log), :title => log.label, :class => log == @commit ? 'commit selected' : 'commit'}
+      = log.merge? ? '\.' : '.'
+    &nbsp;
+%h1.commit_label= @commit.label
+%div.commit
+  %p= "Date Committed: #{@commit.date}"
+  %p
+    = "Parent#{'s' if @commit.merge?}:"
+    - @commit.parents.each do |parent|
+      %p.parent_label= link_to(parent)

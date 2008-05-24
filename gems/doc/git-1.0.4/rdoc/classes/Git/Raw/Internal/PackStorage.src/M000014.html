@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_object (Git::Raw::Internal::PackStorage)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/git/raw/internal/pack.rb, line 115</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_object</span>(<span class="ruby-identifier">offset</span>)
+          <span class="ruby-identifier">data</span>, <span class="ruby-identifier">type</span> = <span class="ruby-identifier">unpack_object</span>(<span class="ruby-identifier">offset</span>)
+          <span class="ruby-constant">RawObject</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">OBJ_TYPES</span>[<span class="ruby-identifier">type</span>], <span class="ruby-identifier">data</span>)
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

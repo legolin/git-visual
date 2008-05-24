@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_config (Git::Lib)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/git/lib.rb, line 352</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_config</span>(<span class="ruby-identifier">file</span>)
+      <span class="ruby-identifier">hsh</span> = {}
+      <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">file</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">file</span>)
+        <span class="ruby-identifier">current_section</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-constant">File</span>.<span class="ruby-identifier">readlines</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">m</span> = <span class="ruby-regexp re">/\[(\w+)\]/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">line</span>)
+            <span class="ruby-identifier">current_section</span> = <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>]
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">m</span> = <span class="ruby-regexp re">/\[(\w+?) &quot;(.*?)&quot;\]/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">line</span>)
+            <span class="ruby-identifier">current_section</span> = <span class="ruby-node">&quot;#{m[1]}.#{m[2]}&quot;</span>
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">m</span> = <span class="ruby-regexp re">/(\w+?) = (.*)/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">line</span>)
+            <span class="ruby-identifier">key</span> = <span class="ruby-node">&quot;#{current_section}.#{m[1]}&quot;</span>
+            <span class="ruby-identifier">hsh</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>] 
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">hsh</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

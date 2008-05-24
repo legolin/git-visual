@@ -1,0 +1,51 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: mode
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: name
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: sha1
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: S_IFMT
+  value: "00170000"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: S_IFLNK
+  value: "0120000"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: S_IFREG
+  value: "0100000"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: S_IFDIR
+  value: "0040000"
+full_name: Git::Raw::DirectoryEntry
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: format_mode
+- !ruby/object:RI::MethodSummary 
+  name: format_type
+- !ruby/object:RI::MethodSummary 
+  name: raw
+- !ruby/object:RI::MethodSummary 
+  name: type
+- !ruby/object:RI::MethodSummary 
+  name: type=
+name: DirectoryEntry
+superclass: Object

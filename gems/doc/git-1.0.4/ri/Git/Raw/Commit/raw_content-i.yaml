@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Raw::Commit#raw_content
+is_singleton: false
+name: raw_content
+params: ()
+visibility: public

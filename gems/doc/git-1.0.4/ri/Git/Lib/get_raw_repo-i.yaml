@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Lib#get_raw_repo
+is_singleton: false
+name: get_raw_repo
+params: ()
+visibility: public

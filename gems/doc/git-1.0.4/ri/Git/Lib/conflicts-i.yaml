@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (f, your, their)
+comment: 
+full_name: Git::Lib#conflicts
+is_singleton: false
+name: conflicts
+params: ( {|f, your, their| ...}
+visibility: public

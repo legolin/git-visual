@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: sha1, offset
+comment: 
+full_name: Git::Raw::Internal::PackStorage#each_entry
+is_singleton: false
+name: each_entry
+params: () {|sha1, offset| ...}
+visibility: public

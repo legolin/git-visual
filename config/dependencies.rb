@@ -34,6 +34,7 @@ use_test :rspec
 # OR
 # dependencies "RedCloth" => "> 3.0", "ruby-aes-cext" => "= 1.0"
 require 'git'
+require 'git_displays'
 
 Merb::BootLoader.after_app_loads do
   ### Add dependencies here that must load after the application loads:

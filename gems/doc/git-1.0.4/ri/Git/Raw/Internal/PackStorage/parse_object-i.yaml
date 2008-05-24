@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Git::Raw::Internal::PackStorage#parse_object
+is_singleton: false
+name: parse_object
+params: (offset)
+visibility: protected

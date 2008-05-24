@@ -1,0 +1,38 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OBJ_NONE
+  value: "0"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OBJ_COMMIT
+  value: "1"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OBJ_TREE
+  value: "2"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OBJ_BLOB
+  value: "3"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OBJ_TAG
+  value: "4"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: OBJ_TYPES
+  value: "[nil, :commit, :tree, :blob, :tag].freeze"
+full_name: Git::Raw::Internal
+includes: []
+
+instance_methods: []
+
+name: Internal
+superclass: 

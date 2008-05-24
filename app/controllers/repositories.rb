@@ -1,13 +1,17 @@
 module Kernel
   def set_repository_root(repository_root)
-    Thread.current['repository_root'] = repository_root
+    Thread.current['repository'] = Git.open(repository_root) if repository_root.to_s.length > 5
   end
-  def repository_root
-    Thread.current['repository_root'] || "/Users/daniel/svn/behindlogic/bliss/merb_dataportability"
+  def mygit_path
+    Thread.current['repository'] ? mygit.dir.path : nil
   end
-  def run_cmd(cmd)
-    `cd #{repository_root}; #{cmd}`
+  def mygit
+    set_repository_root("/Users/daniel/Projects/rubygit") unless Thread.current['repository']
+    Thread.current['repository']
   end
+  # def run_cmd(cmd)
+  #   `cd #{repository_root}; #{cmd}`
+  # end
 end
 
 class Repositories < Application
@@ -18,7 +22,7 @@ class Repositories < Application
   end
 
   def choose
-    session[:repository_root] = params[:repository_root] if params[:repository_root]
+    session[:repository_root] = params[:repository_root]
     if session[:repository_root]
       redirect '/'
     else

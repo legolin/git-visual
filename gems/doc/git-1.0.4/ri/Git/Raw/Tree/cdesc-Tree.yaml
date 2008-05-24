@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: entry
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: from_raw
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Git::Raw::Tree
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: raw_content
+- !ruby/object:RI::MethodSummary 
+  name: type
+name: Tree
+superclass: Object

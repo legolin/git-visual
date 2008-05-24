@@ -12,3 +12,14 @@ div.indent {
 span form {
   display:inline;
 }
+
+div#commit_list {
+  margin:1em;
+}
+
+a.commit {
+  font-weight:bold;
+}
+
+a.commit.selected:before {content:'['}
+a.commit.selected:after {content:']'}

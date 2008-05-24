@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>ls_tree (Git::Lib)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/git/lib.rb, line 191</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ls_tree</span>(<span class="ruby-identifier">sha</span>)
+      <span class="ruby-identifier">data</span> = {<span class="ruby-value str">'blob'</span> =<span class="ruby-operator">&gt;</span> {}, <span class="ruby-value str">'tree'</span> =<span class="ruby-operator">&gt;</span> {}}
+      
+      <span class="ruby-identifier">get_raw_repo</span>.<span class="ruby-identifier">object</span>(<span class="ruby-identifier">revparse</span>(<span class="ruby-identifier">sha</span>)).<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">data</span>[<span class="ruby-identifier">e</span>.<span class="ruby-identifier">format_type</span>][<span class="ruby-identifier">e</span>.<span class="ruby-identifier">name</span>] = {<span class="ruby-identifier">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">format_mode</span>, <span class="ruby-identifier">:sha</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">sha1</span>}
+      <span class="ruby-keyword kw">end</span>
+        
+      <span class="ruby-comment cmt">#command_lines('ls-tree', sha.to_s).each do |line|</span>
+      <span class="ruby-comment cmt">#  (info, filenm) = line.split(&quot;\t&quot;)</span>
+      <span class="ruby-comment cmt">#  (mode, type, sha) = info.split</span>
+      <span class="ruby-comment cmt">#  data[type][filenm] = {:mode =&gt; mode, :sha =&gt; sha}</span>
+      <span class="ruby-comment cmt">#end</span>
+      
+      <span class="ruby-identifier">data</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: repository
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: from_raw
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: base class for all git objects (blob, tree, commit, tag)
+constants: []
+
+full_name: Git::Raw::Object
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: raw_content
+- !ruby/object:RI::MethodSummary 
+  name: sha1
+- !ruby/object:RI::MethodSummary 
+  name: type
+name: Object
+superclass: Object

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: b
+comment: 
+full_name: Git::Branches#each
+is_singleton: false
+name: each
+params: () {|b| ...}
+visibility: public

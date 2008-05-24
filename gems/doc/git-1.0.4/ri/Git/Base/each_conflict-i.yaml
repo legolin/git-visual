@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: iterates over the files which are unmerged
+- !ruby/struct:SM::Flow::P 
+  body: yields file, your_version, their_version
+full_name: Git::Base#each_conflict
+is_singleton: false
+name: each_conflict
+params: (&block)
+visibility: public

@@ -1,0 +1,40 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: author
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: committer
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: message
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: parent
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: tree
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: from_raw
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Git::Raw::Commit
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: raw_content
+- !ruby/object:RI::MethodSummary 
+  name: type
+name: Commit
+superclass: Object

@@ -1,0 +1,40 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: message
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: object
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: tag
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: tagger
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: type
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: from_raw
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Git::Raw::Tag
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: raw_content
+- !ruby/object:RI::MethodSummary 
+  name: type
+name: Tag
+superclass: Object
