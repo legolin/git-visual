@@ -6,11 +6,11 @@
     &nbsp;
 %h1.commit_label= @commit.label
 %div.commit
-  %p= "Date Committed: #{@commit.date}"
   %p
     = "Parent#{'s' if @commit.merge?}:"
     - @commit.parents.each do |parent|
       %p.parent_label= link_to(parent)
+  %p= "Date Committed: #{@commit.date}"
 - if @commit.parent
   %h2 Changed files
   %p
