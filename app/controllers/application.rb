@@ -1,6 +1,7 @@
 # all your other controllers should inherit from this one to share code.
 class Application < Merb::Controller
   self._session_id_key = "_visualgit_session_id"
+  before :get_repository_root
 
   private
     def get_repository_root

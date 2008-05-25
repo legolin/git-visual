@@ -11,3 +11,11 @@
     = "Parent#{'s' if @commit.merge?}:"
     - @commit.parents.each do |parent|
       %p.parent_label= link_to(parent)
+- if @commit.parent
+  %h2 Changed files
+  %p
+    %a{:href => url(:diff, :from => @commit.parent.objectish, :to => @commit.objectish)} [diff]
+  %div.diff_list
+    %ul
+      - @commit.diff_parent.each do |file_diff|
+        %li= file_diff.path

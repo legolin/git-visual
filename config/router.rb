@@ -37,4 +37,5 @@ Merb::Router.prepare do |r|
   r.match('/commits').to(:controller => 'commits') do |commits|
     commits.match('/:objectish', :method => :get).to(:action => 'show').name(:commit)
   end.to(:action => 'index').name(:commits)
+  r.match('/diff/:from/:to').to(:controller => 'diff', :action => 'show').name(:diff)
 end

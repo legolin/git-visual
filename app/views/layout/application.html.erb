@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/visualgit.css" type="text/css" media="screen" charset="utf-8">
   </head>
   <body>
-    <p><% if mygit_path %><span style='color:darkblue;font-weight:bold;font-family:arial;font-size:14pt'>[ <a href="<%= url(:repositories) %>"><%= mygit_path %></a> ]</span> <a href="<%= url(:commits) %>">(switch git)</a><% end %></p>
+    <p><% if mygit_path %><span style='color:darkblue;font-weight:bold;font-family:arial;font-size:14pt'>[ <a href="<%= url(:commits) %>"><%= mygit_path %></a> ]</span> <a href="<%= url(:choose_repository) %>">(switch git)</a><% end %></p>
     <%= catch_content :layout %>
   </body>
 </html>

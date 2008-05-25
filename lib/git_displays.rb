@@ -28,6 +28,10 @@ module Git
       def ==(object)
         objectish == object.objectish
       end
+
+      def diff_parent
+        Git::Diff.new(@base, self.parent, self)
+      end
     end
   end
 end
