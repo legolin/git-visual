@@ -9,9 +9,6 @@ module Kernel
     set_repository_root("/Users/daniel/Projects/rubygit") unless Thread.current['repository']
     Thread.current['repository']
   end
-  # def run_cmd(cmd)
-  #   `cd #{repository_root}; #{cmd}`
-  # end
 end
 
 class Repositories < Application
