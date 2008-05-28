@@ -7,4 +7,10 @@ class Commits < Application
     @commit = Git::Object.new(mygit, objectish)
     render
   end
+
+  # POST /commits
+  def create(message)
+    mygit.commit(message)
+    redirect url(:index)
+  end
 end

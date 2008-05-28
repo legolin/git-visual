@@ -34,8 +34,22 @@ Merb::Router.prepare do |r|
   r.match('/').to(:controller => 'commits', :action => 'index')
   r.match('/repository/choose').to(:controller => 'repositories', :action => 'choose').name(:choose_repository)
   r.resources :repositories
+
+  # Commits
   r.match('/commits').to(:controller => 'commits') do |commits|
     commits.match('/:objectish', :method => :get).to(:action => 'show').name(:commit)
+    commits.match(:method => :post).to(:action => 'create')
   end.to(:action => 'index').name(:commits)
-  r.match('/diff/:from/:to').to(:controller => 'diff', :action => 'show').name(:diff)
+
+  # Diff
+  r.match(%r{/diff/:from/:to/?(.*)?}).to(:controller => 'diff', :action => 'show', :path => '[3]')
+  r.match('/diff/:from/:to/:path').to(:controller => 'diff', :action => 'show').name(:diff)
+
+  # Index
+  r.match('/index').to(:controller => 'index') do |index|
+    index.match('/stage', :method => :post).to(:action => 'stage').name(:stage)
+    index.match('/unstage', :method => :post).to(:action => 'unstage').name(:unstage)
+  end.to(:action => 'index').name(:index)
+
+  r.default_routes
 end
