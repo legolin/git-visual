@@ -33,7 +33,7 @@ Merb::Router.prepare do |r|
   # Change this for your home page to be available at /
   r.match('/').to(:controller => 'index', :action => 'index')
   r.match(%r{/repository/choose(/.*)?}).to(:controller => 'repositories', :action => 'choose', :repository_root => '[1]')
-  r.match('/repository/choose/:repository_root').to(:controller => 'repositories', :action => 'choose').name(:choose_repository)
+  r.match('/repository/choose').to(:controller => 'repositories', :action => 'choose').name(:choose_repository)
   r.resources :repositories
 
   # Commits
