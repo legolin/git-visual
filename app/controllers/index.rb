@@ -12,4 +12,9 @@ class Index < Application
     mygit.reset("HEAD #{path}") rescue(Git::GitExecuteError) # git reset HEAD <file>
     redirect url(:index)
   end
+
+  def ignore(path)
+    `echo "#{path}" >> #{mygit.dir.path}/.gitignore`
+    redirect url(:index)
+  end
 end
