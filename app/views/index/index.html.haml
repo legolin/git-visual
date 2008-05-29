@@ -38,16 +38,17 @@
         %form{:action => url(:stage), :method => 'POST'}
           %input{:type => 'hidden', :name => 'path', :value => diff.path}
           %input{:type => 'submit', :value => 'Stage'}
-%h2 Untracked files:
-%div
-  - mygit.status.untracked.each do |k,file|
-    %li
-      = file.path
-      %a{:href => url(:diff, :from => 'index', :to => 'working', :path => file.path)}
-        (view)
-      %form{:action => url(:stage), :method => 'POST'}
-        %input{:type => 'hidden', :name => 'path', :value => file.path}
-        %input{:type => 'submit', :value => 'Stage'}
-      %form{:action => url(:ignore), :method => 'POST'}
-        %input{:type => 'hidden', :name => 'path', :value => file.path}
-        %input{:type => 'submit', :value => 'Ignore'}
+- if !@untracked.empty?
+  %h2 Untracked files:
+  %div
+    - @untracked.each do |k,file|
+      %li
+        = file.path
+        %a{:href => url(:diff, :from => 'index', :to => 'working', :path => file.path)}
+          (view)
+        %form{:action => url(:stage), :method => 'POST'}
+          %input{:type => 'hidden', :name => 'path', :value => file.path}
+          %input{:type => 'submit', :value => 'Stage'}
+        %form{:action => url(:ignore), :method => 'POST'}
+          %input{:type => 'hidden', :name => 'path', :value => file.path}
+          %input{:type => 'submit', :value => 'Ignore'}

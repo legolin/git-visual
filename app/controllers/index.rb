@@ -1,10 +1,11 @@
 class Index < Application
   def index
+    @untracked = mygit.status.untracked
     render
   end
 
   def stage(path)
-    File.exists?(path) ? mygit.add(path) : mygit.remove(path)
+    File.exists?(mygit.dir.path + '/' + path) ? mygit.add(path) : mygit.remove(path)
     redirect url(:index)
   end
 
