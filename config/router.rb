@@ -31,8 +31,9 @@ Merb::Router.prepare do |r|
   # r.default_routes
   
   # Change this for your home page to be available at /
-  r.match('/').to(:controller => 'commits', :action => 'index')
-  r.match('/repository/choose').to(:controller => 'repositories', :action => 'choose').name(:choose_repository)
+  r.match('/').to(:controller => 'index', :action => 'index')
+  r.match(%r{/repository/choose(/.*)?}).to(:controller => 'repositories', :action => 'choose', :repository_root => '[1]')
+  r.match('/repository/choose/:repository_root').to(:controller => 'repositories', :action => 'choose').name(:choose_repository)
   r.resources :repositories
 
   # Commits
@@ -47,8 +48,9 @@ Merb::Router.prepare do |r|
 
   # Index
   r.match('/index').to(:controller => 'index') do |index|
-    index.match('/stage', :method => :post).to(:action => 'stage').name(:stage)
+    index.match('/stage',   :method => :post).to(:action => 'stage').name(:stage)
     index.match('/unstage', :method => :post).to(:action => 'unstage').name(:unstage)
+    index.match('/ignore',  :method => :post).to(:action => 'ignore').name(:ignore)
   end.to(:action => 'index').name(:index)
 
   r.default_routes
