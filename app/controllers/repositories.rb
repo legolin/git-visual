@@ -18,8 +18,8 @@ class Repositories < Application
     render
   end
 
-  def choose
-    session[:repository_root] = params[:repository_root]
+  def choose(repository_root=nil)
+    session[:repository_root] = repository_root
     if session[:repository_root]
       redirect '/'
     else

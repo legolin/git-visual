@@ -1,0 +1,12 @@
+# Put this in your /usr/local/bin with the right permissions (chmod +x git-visual)
+# Change the path on the pushd line to the path where visual-git lives.
+# It'd be cool if we could integrate (embed?) this with a FluidApp!
+
+REPO=`pwd`
+pushd /Users/daniel/Projects/visual-git
+./script/stop_merb
+merb -d
+popd
+URL="http://localhost:4444/repository/choose$REPO"
+sleep 1
+open $URL
