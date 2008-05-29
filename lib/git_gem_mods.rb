@@ -177,6 +177,16 @@ module Git
           end
         end
 
+        # ... except those that are ignored
+        Dir.chdir(@base.dir.path) do
+          File.open('.gitignore').each_line do |line|
+            line = line.chomp
+            Dir.glob(line) do |file|
+              files.delete(file) if files.has_key?(file)
+            end
+          end
+        end
+
         # find added but not committed - new files
         @base.lib.diff_index('HEAD').each do |path, data|
           files[path] ? files[path].merge!(data) : files[path] = data
