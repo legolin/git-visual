@@ -1,3 +1,10 @@
+body {
+  font-family:Arial, Verdana, sans-serif;
+  font-size:12px;
+  background-color:#fff;
+  padding:1em;
+}
+
 div.table:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
 div.table span {float:left; display:block;}
 
@@ -23,3 +30,23 @@ a.commit {
 
 a.commit.selected:before {content:'['}
 a.commit.selected:after {content:']'}
+
+li form {display:inline;}
+
+h2 {
+  font-size:14pt;
+  color:#b44;
+  font-family:Arial, Verdana, sans-serif;
+  font-weight:normal;
+  font-style:italic;
+  display:inline;
+}
+
+div {
+  margin:.3em 0 3em;
+}
+
+li {
+  margin-left:2em;
+  list-style-type:square;
+}

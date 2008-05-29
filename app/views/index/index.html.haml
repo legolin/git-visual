@@ -1,7 +1,7 @@
 %h1 Current Status
 %h2 Changes not committed:
+%a{:href => url(:diff, :from => 'HEAD', :to => 'working')} (complete diff)
 %div
-  %a{:href => url(:diff, :from => 'HEAD', :to => 'working')} (complete diff)
   %ul
     - mygit.diff('HEAD', 'working').each do |diff|
       %li
@@ -10,11 +10,8 @@
           %a{:href => url(:diff, :from => 'HEAD', :to => 'working', :path => diff.path)}
             (diff)
 %h2 Staged for commit:
+%a{:href => url(:diff, :from => 'HEAD', :to => 'index')} (complete diff)
 %div
-  %form{:action => url(:commit), :method => 'POST'}
-    %input{:type => 'text', :name => 'message'}
-    %input{:type => 'submit', :value => 'Commit these changes'}
-  %a{:href => url(:diff, :from => 'HEAD', :to => 'index')} (complete diff)
   %ul
     - mygit.diff('HEAD', 'index').each do |diff|
       %li
@@ -25,9 +22,12 @@
         %form{:action => url(:unstage), :method => 'POST'}
           %input{:type => 'hidden', :name => 'path', :value => diff.path}
           %input{:type => 'submit', :value => 'Unstage'}
+  %form{:action => url(:commit), :method => 'POST'}
+    %input{:type => 'text', :name => 'message'}
+    %input{:type => 'submit', :value => 'Commit these changes'}
 %h2 Not Staged:
+%a{:href => url(:diff, :from => 'index', :to => 'working')} (complete diff)
 %div
-  %a{:href => url(:diff, :from => 'index', :to => 'working')} (complete diff)
   %ul
     - mygit.diff('index', 'working').each do |diff|
       %li
@@ -38,11 +38,16 @@
         %form{:action => url(:stage), :method => 'POST'}
           %input{:type => 'hidden', :name => 'path', :value => diff.path}
           %input{:type => 'submit', :value => 'Stage'}
-    - mygit.status.untracked.each do |k,file|
-      %li
-        = "#{file.path} (untracked)"
-        %a{:href => url(:diff, :from => 'index', :to => 'working', :path => file.path)}
-          (view)
-        %form{:action => url(:stage), :method => 'POST'}
-          %input{:type => 'hidden', :name => 'path', :value => file.path}
-          %input{:type => 'submit', :value => 'Stage'}
+%h2 Untracked files:
+%div
+  - mygit.status.untracked.each do |k,file|
+    %li
+      = file.path
+      %a{:href => url(:diff, :from => 'index', :to => 'working', :path => file.path)}
+        (view)
+      %form{:action => url(:stage), :method => 'POST'}
+        %input{:type => 'hidden', :name => 'path', :value => file.path}
+        %input{:type => 'submit', :value => 'Stage'}
+      %form{:action => url(:ignore), :method => 'POST'}
+        %input{:type => 'hidden', :name => 'path', :value => file.path}
+        %input{:type => 'submit', :value => 'Ignore'}
