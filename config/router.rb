@@ -19,11 +19,11 @@
 # You can also use regular expressions, deferred routes, and many other options.
 # See merb/specs/merb/router.rb for a fairly complete usage sample.
 
-puts "Compiling routes.."
+Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do |r|
   # RESTful routes
   # r.resources :posts
-
+  
   # This is the default route for /:controller/:action/:id
   # This is fine for most cases.  If you're heavily using resource-based
   # routes, you may want to comment/remove this line to prevent
@@ -31,27 +31,33 @@ Merb::Router.prepare do |r|
   # r.default_routes
   
   # Change this for your home page to be available at /
-  r.match('/').to(:controller => 'index', :action => 'index')
-  r.match(%r{/repository/choose(/.*)?}).to(:controller => 'repositories', :action => 'choose', :repository_root => '[1]')
-  r.match('/repository/choose/:repository_root').to(:controller => 'repositories', :action => 'choose').name(:choose_repository)
-  r.resources :repositories
-
+  # r.match(%r{/repositories/choose(/.*)?}).to(:action => 'choose', :repository_root => '[1]')
+  # r.match('/repositories/choose/:repository_root').to(:action => 'choose').name(:choose_repository)
+  r.resources :repositories do |repos|
+    repos.match('choose').to(:action => 'choose')
+    repos.match(%r{choose(/.*)?}).to(:action => 'choose', :repository_root => '[1]')
+    repos.match('choose/:repository_root').to(:action => 'choose').name(:choose_repository)
+  end
+  
   # Commits
   r.match('/commits').to(:controller => 'commits') do |commits|
     commits.match('/:objectish', :method => :get).to(:action => 'show').name(:commit)
     commits.match(:method => :post).to(:action => 'create')
   end.to(:action => 'index').name(:commits)
-
+  
   # Diff
   r.match(%r{/diff/:from/:to/?(.*)?}).to(:controller => 'diff', :action => 'show', :path => '[3]')
   r.match('/diff/:from/:to/:path').to(:controller => 'diff', :action => 'show').name(:diff)
-
+  
   # Index
   r.match('/index').to(:controller => 'index') do |index|
     index.match('/stage',   :method => :post).to(:action => 'stage').name(:stage)
     index.match('/unstage', :method => :post).to(:action => 'unstage').name(:unstage)
     index.match('/ignore',  :method => :post).to(:action => 'ignore').name(:ignore)
   end.to(:action => 'index').name(:index)
-
+  
   r.default_routes
+  
+  r.match('/').to(:controller => 'index', :action => 'index')
+  
 end

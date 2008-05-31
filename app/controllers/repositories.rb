@@ -6,7 +6,7 @@ module Kernel
     Thread.current['repository'] ? mygit.dir.path : nil
   end
   def mygit
-    set_repository_root("/Users/daniel/Projects/rubygit") unless Thread.current['repository']
+    set_repository_root("/Users/mtodd/Projects/halcyon") unless Thread.current['repository']
     Thread.current['repository']
   end
 end
