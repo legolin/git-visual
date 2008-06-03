@@ -17,6 +17,6 @@ class Commits < Application
   # POST /commits/HEAD
   def git_push
     @push_result = mygit.push rescue nil
-    index
+    render :template => 'commits/index'
   end
 end
