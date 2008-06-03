@@ -17,6 +17,8 @@ class Commits < Application
   # POST /commits/HEAD
   def git_push
     @push_result = mygit.push rescue nil
-    render :template => 'commits/index'
+
+    @untracked = mygit.status.untracked
+    render :template => 'index/index'
   end
 end
