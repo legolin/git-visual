@@ -39,6 +39,7 @@ Merb::Router.prepare do |r|
   # Commits
   r.match('/commits').to(:controller => 'commits') do |commits|
     commits.match('/:objectish', :method => :get).to(:action => 'show').name(:commit)
+    commits.match('/HEAD', :method => :post).to(:action => 'git_push').name(:push)
     commits.match(:method => :post).to(:action => 'create')
   end.to(:action => 'index').name(:commits)
 

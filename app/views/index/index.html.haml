@@ -1,14 +1,4 @@
 %h1 Current Status
-%h2 Changes not committed:
-%a{:href => url(:diff, :from => 'HEAD', :to => 'working')} (complete diff)
-%div
-  %ul
-    - mygit.diff('HEAD', 'working').each do |diff|
-      %li
-        = "#{diff.path} (#{diff.type})"
-        - if diff.type == 'modified'
-          %a{:href => url(:diff, :from => 'HEAD', :to => 'working', :path => diff.path)}
-            (diff)
 %h2 Staged for commit:
 %a{:href => url(:diff, :from => 'HEAD', :to => 'index')} (complete diff)
 %div
@@ -25,6 +15,10 @@
   %form{:action => url(:commit), :method => 'POST'}
     %input{:type => 'text', :name => 'message'}
     %input{:type => 'submit', :value => 'Commit these changes'}
+  %br
+  %form{:action => url(:push), :method => 'POST'}
+    %input{:type => 'submit', :value => 'Git PUSH'}
+  = @push_result.to_s
 %h2 Not Staged:
 %a{:href => url(:diff, :from => 'index', :to => 'working')} (complete diff)
 %div

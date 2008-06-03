@@ -13,4 +13,10 @@ class Commits < Application
     mygit.commit(message)
     redirect url(:index)
   end
+
+  # POST /commits/HEAD
+  def git_push
+    @push_result = mygit.push rescue nil
+    index
+  end
 end
