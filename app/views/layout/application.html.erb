@@ -9,6 +9,6 @@
   <body>
     <p><% if mygit_path %><span style='color:darkblue;font-weight:bold;font-family:arial;font-size:14pt'>[ <a href="<%= url(:commits) %>"><%= mygit_path %></a> ]</span> <a href="<%= url(:choose_repository) %>">(switch git)</a><% end %></p>
     <p><a href="<%= url(:commits) %>">Commit History</a> | <a href="<%= url(:index) %>">Current Status</a></p>
-    <%= catch_content :layout %>
+    <%= catch_content :for_layout %>
   </body>
 </html>

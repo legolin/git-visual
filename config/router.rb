@@ -33,11 +33,11 @@ Merb::Router.prepare do |r|
   # Change this for your home page to be available at /
   r.match('/').to(:controller => 'index', :action => 'index')
 
-  r.resources :repositories do |repos|
-    repos.match('choose').to(:action => 'choose')
-    repos.match(%r{choose(/.*)?}).to(:action => 'choose', :repository_root => '[1]')
-    repos.match('choose/:repository_root').to(:action => 'choose').name(:choose_repository)
-  end
+  # The routing IS working somewhat differently in merb-0.9.3, and it doesn't catch the repository_root parameter right.
+  # Can somebody fix it?
+  r.match(%r{/repository/choose(/.*)?}).to(:controller => 'repositories', :action => 'choose', :repository_root => '[1]')
+  r.match('/repository/choose').to(:controller => 'repositories', :action => 'choose').name(:choose_repository)
+  r.resources :repositories
 
   # Commits
   r.match('/commits').to(:controller => 'commits') do |commits|

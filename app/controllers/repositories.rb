@@ -20,10 +20,11 @@ class Repositories < Application
 
   def choose(repository_root=nil)
     session[:repository_root] = repository_root
+    Merb.logger.info "REPO: #{repository_root.inspect}"
     if session[:repository_root]
       redirect '/'
     else
-      render
+      render :choose
     end
   end
 end
