@@ -48,8 +48,10 @@ Gem.path.unshift(Merb.root / "gems")
 
 require Merb.root/'gems'/'gems'/'git-1.0.4'/'lib'/'git'
 
-dependency "merb_helpers"
-dependency "merb-haml"
+require 'parse_tree'
+require 'merb-action-args'
+require "merb_helpers"
+require "merb-haml"
 
 
 require 'lib/git_gem_mods'
@@ -122,7 +124,7 @@ Merb::Config.use do |c|
 
   # Sets up a custom session id key, if you want to piggyback sessions of other applications
   # with the cookie session store. If not specified, defaults to '_session_id'.
-  # c[:session_id_key] = '_session_id'
+  c[:session_id_key] = '_git-visual_session_id'
 
   c[:session_secret_key]  = 'c94b155fb964c4b037d5529758699b4746855af3'
   c[:session_store] = 'cookie'
